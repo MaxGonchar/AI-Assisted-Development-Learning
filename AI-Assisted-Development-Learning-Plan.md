@@ -9,53 +9,53 @@
 ## Phase 1: Foundations (Week 1-2)
 
 ### Understanding AI Coding Assistants
-- [ ] Learn how AI models work (context windows, token limits, capabilities)
-- [ ] Understand when to use AI vs. when to code manually
-- [ ] Learn the strengths and limitations of AI assistants
+- [X] Learn how AI models work (context windows, token limits, capabilities)
+- [X] Understand when to use AI vs. when to code manually
+- [X] Learn the strengths and limitations of AI assistants
 
 ### VS Code Setup
-- [ ] Install and configure GitHub Copilot
-- [ ] Explore Copilot Chat vs. inline suggestions
-- [ ] Learn keyboard shortcuts (`Ctrl+I`, `Cmd+I` for inline chat)
-- [ ] Understand workspace context and how AI reads your project
-- [ ] Learn Copilot Edits mode for multi-file editing
-- [ ] Explore Copilot in Terminal for command suggestions
-- [ ] Understand Code Actions and quick fixes with AI
-- [ ] Learn IntelliSense + AI synergy
+- [X] Install and configure GitHub Copilot
+- [X] Explore Copilot Chat vs. inline suggestions
+- [X] Learn keyboard shortcuts (`Ctrl+I`, `Cmd+I` for inline chat)
+- [X] Understand workspace context and how AI reads your project
+- [X] Learn Copilot Edits mode for multi-file editing
+- [X] Explore Copilot in Terminal for command suggestions
+- [X] Understand Code Actions and quick fixes with AI
+- [X] Learn IntelliSense + AI synergy
 
 ### Privacy & Security Basics
-- [ ] Understand what data is sent to AI services
-- [ ] Learn what NOT to share (credentials, PII, proprietary code)
-- [ ] Configure content exclusions if needed
-- [ ] Understand enterprise vs. individual account differences
+- [X] Understand what data is sent to AI services
+- [X] Learn what NOT to share (credentials, PII, proprietary code)
+- [X] Configure content exclusions if needed
+- [X] Understand enterprise vs. individual account differences
 
 ---
 
 ## Phase 2: Prompt Engineering (Week 2-3)
 
 ### Basic Prompting
-- [ ] Be specific and clear in requests
-- [ ] Provide context (file purpose, dependencies, constraints)
-- [ ] Break complex tasks into smaller steps
-- [ ] Use examples when explaining desired behavior
+- [x] Be specific and clear in requests
+- [x] Provide context (file purpose, dependencies, constraints)
+- [x] Break complex tasks into smaller steps
+- [x] Use examples when explaining desired behavior
 
 ### Practical Prompting Techniques
-- [ ] **Few-Shot Prompting**: Show examples of your code style before asking for new code
-- [ ] **Chain-of-Thought**: Ask AI to explain reasoning step-by-step ("think through edge cases first")
-- [ ] **Role/Persona Prompting**: "Act as a senior [language] developer" or "Review as a security expert"
-- [ ] **Constraint-Based**: Specify tech stack, line limits, library restrictions upfront
-- [ ] **Iterative Refinement**: Start simple, then improve ("now add error handling", "make it more efficient")
-- [ ] **Code Context**: Share relevant existing code to maintain consistency
-- [ ] **Explicit Output Format**: Request specific formats (tests, types, documentation style)
+- [x] **Few-Shot Prompting**: Show examples of your code style before asking for new code
+- [x] **Chain-of-Thought**: Ask AI to explain reasoning step-by-step ("think through edge cases first")
+- [x] **Role/Persona Prompting**: "Act as a senior [language] developer" or "Review as a security expert"
+- [x] **Constraint-Based**: Specify tech stack, line limits, library restrictions upfront
+- [x] **Iterative Refinement**: Start simple, then improve ("now add error handling", "make it more efficient")
+- [x] **Code Context**: Share relevant existing code to maintain consistency
+- [x] **Explicit Output Format**: Request specific formats (tests, types, documentation style)
 
 ### Advanced Prompting
-- [ ] Request specific patterns (e.g., "Use TypeScript generics")
-- [ ] Specify error handling requirements
-- [ ] Ask for test cases alongside code
-- [ ] Request documentation and comments
-- [ ] Combine multiple techniques (e.g., role + constraints + few-shot)
-- [ ] Use "think step-by-step" for complex algorithms
-- [ ] Ask for multiple approaches to compare solutions
+- [x] Request specific patterns (e.g., "Use TypeScript generics")
+- [x] Specify error handling requirements
+- [x] Ask for test cases alongside code
+- [x] Request documentation and comments
+- [x] Combine multiple techniques (e.g., role + constraints + few-shot)
+- [x] Use "think step-by-step" for complex algorithms
+- [x] Ask for multiple approaches to compare solutions
 
 ---
 
