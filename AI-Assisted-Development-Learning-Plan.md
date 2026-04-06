@@ -125,6 +125,16 @@
 - [ ] Configure contextual instructions (per-folder guidance)
 - [ ] Learn to version control prompt configurations
 
+### SKILL.md Files - Reusable Workflows
+- [ ] **Understand Skills**: Learn what SKILL.md files are and how they differ from instructions
+- [ ] **Create Your First Skill**: Build a simple skill for a repetitive workflow
+- [ ] **Domain-Specific Skills**: Create skills for testing, API design, error handling, etc.
+- [ ] **Skill Structure**: Learn proper YAML frontmatter and skill organization
+- [ ] **Skill Invocation**: Understand when/how AI automatically invokes skills
+- [ ] **Skill Library**: Build a collection of reusable skills for common tasks
+- [ ] **Team Skills**: Share skills with team members for consistent workflows
+- [ ] **Skill Debugging**: Test and refine skills when AI doesn't use them correctly
+
 ### MCP (Model Context Protocol) Servers
 - [ ] Understand what MCP servers are and how they extend AI capabilities
 - [ ] Learn to connect AI to external data sources
@@ -285,6 +295,8 @@ Pick areas relevant to your work:
 - [ ] **Practice reviewing agent work**: Check agent-generated code before accepting
 - [ ] **Iterate with agents**: Guide agent when first attempt isn't perfect
 - [ ] **Try CLI agents**: Use Aider or similar for a coding task
+- [ ] **Create your first SKILL.md**: Build a skill for a workflow you repeat often
+- [ ] **Test skill invocation**: Verify AI uses your skill when appropriate
 
 ### Week 7+: Mastery & Experimentation
 - [ ] Set up and use an MCP server
@@ -329,6 +341,8 @@ Pick areas relevant to your work:
 - [ ] Implement common algorithms
 - [ ] Build a small full-stack app
 - [ ] Set up a project with custom AI instructions and test their effectiveness
+- [ ] **Create a Skill Library**: Build 3-5 SKILL.md files for your common workflows
+- [ ] **Test Skills in Practice**: Use your skills on a real project and refine them
 - [ ] Create an MCP server for a custom data source
 - [ ] Use AI to navigate and understand a large open-source codebase
 - [ ] Build a project with multiple AI tools and compare experiences
@@ -349,6 +363,8 @@ Pick areas relevant to your work:
 | Learning velocity in new technologies | |
 | Cost of AI services (if paid) | |
 | Number of useful prompts in personal library | |
+| Number of SKILL.md files created | |
+| Skills successfully invoked by AI | |
 | Agent tasks completed successfully | |
 | Agent vs chat time comparison | |
 
@@ -358,6 +374,9 @@ Pick areas relevant to your work:
 
 - ✅ Create a `.github/copilot-instructions.md` file to guide AI across your entire project
 - ✅ Build a personal library of effective prompts for reuse
+- ✅ **Create SKILL.md files for repetitive workflows**: Testing strategies, API patterns, code review checklists
+- ✅ **Keep skills focused**: One skill per workflow/domain, not generic catch-all skills
+- ✅ **Version control your skills**: Share with team and iterate based on usage
 - ✅ Use few-shot prompting: "Here's my existing code: [example]. Now create similar code for [task]"
 - ✅ Use chain-of-thought for complex logic: "Think step-by-step" or "Explain your reasoning"
 - ✅ Try role prompting: "Act as a senior [language] developer" for better code quality
@@ -553,6 +572,14 @@ _Track useful tools, extensions, MCP servers, and resources you discover along t
 - [ ] GitHub Copilot Chat
 - [ ] Other: ___________
 
+### SKILL.md Files Created
+_Track your skill library growth._
+- [ ] Testing workflow skill
+- [ ] API design skill
+- [ ] Error handling skill
+- [ ] Code review skill
+- [ ] Other: ___________
+
 ### Agent Success Stories
 _Document your successful agent tasks to remember what works well._
 - Task: ___________
@@ -564,6 +591,12 @@ _Track what didn't work to avoid repeating mistakes._
 - What went wrong: ___________
   - Why: ___________
   - How to avoid: ___________
+
+### Skill Usage Tracking
+_Note which skills AI successfully invokes and which need refinement._
+- Skill: ___________
+  - Successfully invoked: Yes/No
+  - Improvements needed: ___________
 
 ### Useful Resources
 - Documentation: ___________
@@ -813,6 +846,350 @@ Better:
 - Assume agents understand implicit project rules
 - Use agents for exploratory/learning tasks
 
+---
+
+## Creating SKILL.md Files - Practical Guide
+
+### What Are Skills?
+
+**Skills** are reusable workflow definitions that package domain-specific knowledge and procedures for AI to invoke automatically. Unlike workspace instructions (which apply globally), skills are invoked when relevant to the task.
+
+### Skills vs Instructions vs Prompts
+
+| Type | Purpose | Scope | When Used |
+|------|---------|-------|-----------|
+| **Instructions** (`.github/copilot-instructions.md`) | Project-wide coding standards | Every AI interaction | Always applied |
+| **Skills** (`SKILL.md` files) | Specific workflows/procedures | Invoked when relevant | AI determines when to use |
+| **Prompts** | Ad-hoc requests | Single interaction | Manual, one-time use |
+
+### Skill File Structure
+
+```markdown
+---
+description: Short description of what this skill does (required for AI to find it)
+applyTo:
+  - "**/*.test.ts"  # Automatically apply to test files
+  - "src/api/**"     # Or specific directories
+tags:
+  - testing
+  - jest
+  - tdd
+---
+
+# Testing Workflow Skill
+
+## When to Use
+Use this skill when writing or updating tests for our application.
+
+## Testing Standards
+1. Use Jest and React Testing Library
+2. Follow AAA pattern (Arrange, Act, Assert)
+3. Mock external dependencies
+4. Test user behavior, not implementation details
+5. Aim for 80%+ coverage
+
+## File Structure
+- Tests go in `__tests__/` folders
+- Name pattern: `ComponentName.test.tsx`
+- Group related tests with `describe()` blocks
+
+## Example Test Pattern
+```typescript
+describe('ComponentName', () => {
+  it('should handle user interaction', () => {
+    // Arrange
+    render(<ComponentName {...props} />);
+    
+    // Act
+    fireEvent.click(screen.getByRole('button'));
+    
+    // Assert
+    expect(mockFunction).toHaveBeenCalledWith(expected);
+  });
+});
+```
+
+## Edge Cases to Always Test
+- Empty/null inputs
+- Error states
+- Loading states
+- Permission denied scenarios
+```
+
+### Skill Examples
+
+#### Example 1: API Design Skill
+```markdown
+---
+description: Guidelines for designing RESTful APIs in this project
+applyTo:
+  - "src/routes/**"
+  - "src/controllers/**"
+tags:
+  - api
+  - rest
+  - backend
+---
+
+# API Design Skill
+
+## Endpoint Patterns
+- Use plural nouns: `/users`, `/products`
+- Version APIs: `/api/v1/users`
+- Use HTTP verbs correctly (GET, POST, PUT, DELETE)
+
+## Response Format
+All responses follow this structure:
+```json
+{
+  "success": true,
+  "data": { ... },
+  "meta": { "page": 1, "total": 100 }
+}
+```
+
+Error responses:
+```json
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "User-friendly message",
+    "details": [ ... ]
+  }
+}
+```
+
+## Validation
+- Validate all inputs using Joi schemas
+- Return 400 for validation errors
+- Use our custom error middleware
+
+## Authentication
+- All endpoints except /auth require JWT
+- Use our `authenticate` middleware
+- Check permissions with `authorize(['admin', 'user'])`
+```
+
+#### Example 2: Error Handling Skill
+```markdown
+---
+description: Standard error handling patterns for the application
+applyTo:
+  - "src/**/*.ts"
+tags:
+  - error-handling
+  - exceptions
+  - logging
+---
+
+# Error Handling Skill
+
+## Error Types
+We use custom error classes in `src/errors/`:
+- `ValidationError` - 400
+- `AuthenticationError` - 401
+- `AuthorizationError` - 403
+- `NotFoundError` - 404
+- `ConflictError` - 409
+- `InternalError` - 500
+
+## Pattern
+```typescript
+import { NotFoundError } from '@/errors';
+import { logger } from '@/utils/logger';
+
+try {
+  const user = await userService.findById(id);
+  if (!user) {
+    throw new NotFoundError('User not found');
+  }
+  return user;
+} catch (error) {
+  logger.error('Error in getUserById', { error, userId: id });
+  throw error; // Let error middleware handle it
+}
+```
+
+## Async Route Handlers
+Always wrap with our `asyncHandler`:
+```typescript
+router.get('/users/:id', asyncHandler(async (req, res) => {
+  const user = await userService.findById(req.params.id);
+  res.json({ success: true, data: user });
+}));
+```
+
+## Logging
+- Use structured logging with context
+- Log at appropriate levels (debug, info, warn, error)
+- Never log sensitive data (passwords, tokens)
+```
+
+#### Example 3: Code Review Skill
+```markdown
+---
+description: Checklist for reviewing code before committing
+tags:
+  - code-review
+  - quality
+  - best-practices
+---
+
+# Code Review Skill
+
+## Review Checklist
+
+### Security
+- [ ] No hardcoded secrets or API keys
+- [ ] Input validation on all user data
+- [ ] SQL injection prevention (use parameterized queries)
+- [ ] XSS prevention (sanitize outputs)
+- [ ] Authentication/authorization checks
+
+### Performance
+- [ ] No N+1 queries
+- [ ] Appropriate database indexes
+- [ ] Pagination for large datasets
+- [ ] Caching where appropriate
+- [ ] Efficient algorithms (avoid O(n²) when possible)
+
+### Code Quality
+- [ ] No duplicate code (DRY principle)
+- [ ] Functions are small and focused
+- [ ] Clear, descriptive naming
+- [ ] Proper error handling
+- [ ] TypeScript types are specific (no `any`)
+
+### Testing
+- [ ] Unit tests for business logic
+- [ ] Integration tests for APIs
+- [ ] Edge cases covered
+- [ ] Tests are passing
+
+### Documentation
+- [ ] Complex logic has comments
+- [ ] Public APIs have JSDoc
+- [ ] README updated if needed
+- [ ] Breaking changes documented
+
+## How to Use
+When reviewing code (yours or others'), go through each category systematically.
+Ask AI to review code against this checklist.
+```
+
+### When to Create a Skill
+
+**Great Candidates:**
+- ✅ Workflows you repeat frequently (testing, API design, deployment)
+- ✅ Domain-specific patterns (security checks, database migrations)
+- ✅ Team standards and conventions
+- ✅ Multi-step procedures (release process, code review)
+- ✅ Complex decision trees (which library to use when)
+
+**Not Good for Skills:**
+- ❌ One-time tasks
+- ❌ Project-wide rules (use `.github/copilot-instructions.md` instead)
+- ❌ Simple one-liner guidelines
+- ❌ Constantly changing procedures
+
+### Skill File Organization
+
+```
+your-project/
+├── .github/
+│   └── copilot-instructions.md      # Project-wide standards
+├── skills/                           # Your skill library
+│   ├── testing.md                   # Testing workflow
+│   ├── api-design.md                # API patterns
+│   ├── error-handling.md            # Error patterns
+│   ├── security-review.md           # Security checklist
+│   ├── deployment.md                # Deployment procedures
+│   └── code-review.md               # Review checklist
+```
+
+Or organize by domain:
+```
+skills/
+├── backend/
+│   ├── api-design.md
+│   ├── database-migrations.md
+│   └── authentication.md
+├── frontend/
+│   ├── component-patterns.md
+│   ├── state-management.md
+│   └── accessibility.md
+└── devops/
+    ├── deployment.md
+    ├── monitoring.md
+    └── ci-cd.md
+```
+
+### Testing Your Skills
+
+1. **Create the skill file** with clear description and tags
+2. **Try a task** where the skill should apply
+3. **Check if AI invokes it** (AI should reference the skill in responses)
+4. **If not invoked:**
+   - Make description more specific
+   - Add relevant tags
+   - Use `applyTo` patterns to target specific files
+   - Mention the skill explicitly: "Use the testing skill from skills/testing.md"
+
+### Iterating on Skills
+
+```markdown
+Version 1 (too vague):
+---
+description: Testing guidelines
+---
+Test your code properly.
+
+Version 2 (better):
+---
+description: Jest and React Testing Library patterns for component testing
+applyTo:
+  - "**/*.test.tsx"
+tags:
+  - testing
+  - jest
+  - react-testing-library
+---
+[Detailed guidelines with examples]
+
+Version 3 (best):
+[Same as Version 2 but includes:]
+- Specific code examples
+- Common pitfalls to avoid
+- Links to key dependencies
+- Team-specific conventions
+```
+
+### Skills for Team Sharing
+
+When creating skills for your team:
+1. **Document the "why"**: Explain reasoning behind patterns
+2. **Include examples**: Show good vs. bad patterns
+3. **Keep them updated**: Review quarterly, remove outdated advice
+4. **Version control**: Track changes, allow team feedback
+5. **Index them**: Create a README.md listing all available skills
+
+### Pro Tips for Skills
+
+✅ **DO:**
+- Be specific and actionable
+- Include code examples
+- Reference project-specific patterns
+- Use clear, descriptive filenames
+- Keep each skill focused on one workflow/domain
+- Update skills based on team feedback
+
+❌ **DON'T:**
+- Make skills too long (AI may not process all content)
+- Duplicate content from workspace instructions
+- Include outdated or deprecated practices
+- Use vague descriptions (AI won't know when to invoke)
+- Create overlapping skills that confuse AI
 
 
 # Thoughts & Reflections
