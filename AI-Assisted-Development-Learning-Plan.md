@@ -34,65 +34,65 @@
 ## Phase 2: Prompt Engineering (Week 2-3)
 
 ### Basic Prompting
-- [x] Be specific and clear in requests
-- [x] Provide context (file purpose, dependencies, constraints)
-- [x] Break complex tasks into smaller steps
-- [x] Use examples when explaining desired behavior
+- [X] Be specific and clear in requests
+- [X] Provide context (file purpose, dependencies, constraints)
+- [X] Break complex tasks into smaller steps
+- [X] Use examples when explaining desired behavior
 
 ### Practical Prompting Techniques
-- [x] **Few-Shot Prompting**: Show examples of your code style before asking for new code
-- [x] **Chain-of-Thought**: Ask AI to explain reasoning step-by-step ("think through edge cases first")
-- [x] **Role/Persona Prompting**: "Act as a senior [language] developer" or "Review as a security expert"
-- [x] **Constraint-Based**: Specify tech stack, line limits, library restrictions upfront
-- [x] **Iterative Refinement**: Start simple, then improve ("now add error handling", "make it more efficient")
-- [x] **Code Context**: Share relevant existing code to maintain consistency
-- [x] **Explicit Output Format**: Request specific formats (tests, types, documentation style)
+- [X] **Few-Shot Prompting**: Show examples of your code style before asking for new code
+- [X] **Chain-of-Thought**: Ask AI to explain reasoning step-by-step ("think through edge cases first")
+- [X] **Role/Persona Prompting**: "Act as a senior [language] developer" or "Review as a security expert"
+- [X] **Constraint-Based**: Specify tech stack, line limits, library restrictions upfront
+- [X] **Iterative Refinement**: Start simple, then improve ("now add error handling", "make it more efficient")
+- [X] **Code Context**: Share relevant existing code to maintain consistency
+- [X] **Explicit Output Format**: Request specific formats (tests, types, documentation style)
 
 ### Advanced Prompting
-- [x] Request specific patterns (e.g., "Use TypeScript generics")
-- [x] Specify error handling requirements
-- [x] Ask for test cases alongside code
-- [x] Request documentation and comments
-- [x] Combine multiple techniques (e.g., role + constraints + few-shot)
-- [x] Use "think step-by-step" for complex algorithms
-- [x] Ask for multiple approaches to compare solutions
+- [X] Request specific patterns (e.g., "Use TypeScript generics")
+- [X] Specify error handling requirements
+- [X] Ask for test cases alongside code
+- [X] Request documentation and comments
+- [X] Combine multiple techniques (e.g., role + constraints + few-shot)
+- [X] Use "think step-by-step" for complex algorithms
+- [X] Ask for multiple approaches to compare solutions
 
 ---
 
 ## Phase 3: Effective Workflows (Week 3-4)
 
 ### Code Generation
-- [ ] Generate boilerplate and scaffolding
-- [ ] Create functions from comments
-- [ ] Generate test cases
-- [ ] Create configuration files
+- [X] Generate boilerplate and scaffolding
+- [X] Create functions from comments
+- [X] Generate test cases
+- [X] Create configuration files
 
 ### Code Review & Refactoring
-- [ ] Ask AI to review your code for issues
-- [ ] Request refactoring suggestions
-- [ ] Identify code smells and anti-patterns
-- [ ] Improve code readability
+- [X] Ask AI to review your code for issues
+- [X] Request refactoring suggestions
+- [X] Identify code smells and anti-patterns
+- [X] Improve code readability
 
 ### Debugging
-- [ ] Share error messages with context
-- [ ] Ask for debugging strategies
-- [ ] Request explanations of complex errors
-- [ ] Generate diagnostic code
+- [X] Share error messages with context
+- [X] Ask for debugging strategies
+- [X] Request explanations of complex errors
+- [X] Generate diagnostic code
 
 ### Git Workflows with AI (Basics)
-- [ ] Generate meaningful commit messages
-- [ ] Write clear PR descriptions with AI assistance
-- [ ] Get quick code review feedback before pushing
-- [ ] Understand git commands with AI explanations
-- [ ] Create .gitignore files for your stack
+- [X] Generate meaningful commit messages
+- [X] Write clear PR descriptions with AI assistance
+- [X] Get quick code review feedback before pushing
+- [X] Understand git commands with AI explanations
+- [X] Create .gitignore files for your stack
 
 ### Understanding AI Agents (Basics)
-- [ ] Learn the difference between chat-based AI and autonomous agents
-- [ ] Understand when to use agents vs. chat interaction
-- [ ] Learn about agent modes in VS Code (Copilot Edits)
-- [ ] Understand how agents plan and execute multi-step tasks
-- [ ] Learn to provide clear goals to agents
-- [ ] Practice interrupting/guiding agents when needed
+- [X] Learn the difference between chat-based AI and autonomous agents
+- [X] Understand when to use agents vs. chat interaction
+- [X] Learn about agent modes in VS Code (Copilot Edits)
+- [X] Understand how agents plan and execute multi-step tasks
+- [X] Learn to provide clear goals to agents
+- [X] Practice interrupting/guiding agents when needed
 
 ---
 
@@ -813,3 +813,8 @@ Better:
 - Assume agents understand implicit project rules
 - Use agents for exploratory/learning tasks
 
+
+
+# Thoughts & Reflections
+- It would be nice to cover process before actual code writing. How AI can assist in planning, design, architecture decisions so the final code creation step can be done in smooth minimal iterations. (Does it make sense to do it in different sessions? One for planning, one for coding?)
+- Chain of actions. I can ask AI to do something (code review for example) from different perspectives (security, performance, readability). What is more effective? Asking for all perspectives at once (token consuming?) or create some kind of pipeline (agent? skills?) so AI can concentrate on one aspect at a time and summarize?
